@@ -65,7 +65,46 @@ MovieApp.controller('ActorController', ['$scope', '$routeParams', '$http', 'Acto
 			$scope.actorMovieResult = msgActorError;
 		});
 	}
+	// Function to get the list of movies
+	$scope.getActorsByName = function (actorName) 
+	{
 
+		ActorService.getActorListService(actorName)
+		.success(function (data, status, headers, config) 
+		{
+
+			// Validate status
+			if (status == 200) 
+			{
+				// Set data results
+				$scope.actorList = data.results;
+
+				// Validate tota results
+				if(data.total_results == 0)
+				{
+					console.log(msgMovieNotFound);
+					$scope.actorResult = msgActorNotFound;  
+				}
+			} 
+			else 
+			{
+				$scope.actorResult = msgActorError;
+			}
+
+    	})
+		.error(function (data, status, headers, config) 
+		{
+			$scope.actorResult = msgActorError;
+		});
+
+	}
+
+	// Validate if searchMovieName is empty
+	if($routeParams.searchActorName)
+	{
+		$scope.getActorsByName($routeParams.searchActorName);
+	}
+	
 	// Validate if actor id is empty
 	if($routeParams.id)
 	{

@@ -22,6 +22,10 @@ MovieApp.config(function($routeProvider){
 		templateUrl: 'views/actorInfo.html',
 		controller: 'ActorController'
 	})
+	.when('/searchActor/:searchActorName', {
+		templateUrl: 'views/actorList.html',
+		controller: 'ActorController'
+	})
 	.otherwise({ redirectTo: '/searchMovie' })
 });
 

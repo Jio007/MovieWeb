@@ -29,6 +29,25 @@ MovieApp.factory('ActorService', function($http) {
                 url: url,
                 headers: { 'Content-Type' : 'application/json' }
             });
+        },
+		getActorListService: function(actorName) {
+
+             // url of themoviedb.org that provide the popular movie list 
+        	var url = getUrl("discover/movie", '');
+
+            // Validate if movieName is empty
+        	if(actorName != '')
+        	{
+                 // url of themoviedb.org that provide the movie list
+        		url = getUrl("search/person",'&query='+actorName);
+        	}
+
+             //return the result
+             return $http({
+				method: 'GET',
+				url: url,
+				headers: { 'Content-Type' : 'application/json' }
+			});
         }
    }
 });

@@ -10,8 +10,12 @@
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search Movie" ng-model="searchMovie">
+			<a href="#/searchMovie/{{searchMovie}}" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></a>
           </div>
-          <a href="#/searchMovie/{{searchMovie}}" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></a>
+		  <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Actor" ng-model="searActorMovie">
+			<a href="#/searchActor/{{searActorMovie}}" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></a>
+          </div>
         </form>
     
   </div>
