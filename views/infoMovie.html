@@ -1,0 +1,57 @@
+<div class="alert alert-info" role="alert" ng-show="movieResult"> {{movieResult}} </div>
+
+<div class="media">
+  
+  <div class="media-left">
+      
+      <img ng-src="http://image.tmdb.org/t/p/w300/{{movieInfo.poster_path}}" ng-hide="movieInfo.poster_path == null"/>
+
+      <img class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" 
+            width="130px" height="195px" ng-hide="movieInfo.poster_path != null"/>
+      
+  </div>
+
+  <div class="media-body">
+   <h3 class="media-heading">{{movieInfo.original_title}} ({{movieInfo.release_date | date: 'yyyy'}})</h3>
+    <div class="medica-content">
+      <h5 style="text-decoration: underline;">Overwrite</h5>
+      <p>{{movieInfo.overview}}</p>
+      <h5 style="text-decoration: underline;">Genres</h5>
+      <ul class="list-inline">
+        <li ng-repeat="genres in movieInfo.genres">{{genres.name}}</li>
+      </ul>  
+      <p><b>Homepage:</b> <a style="color: #FFFFCE" href="{{movieInfo.homepage}}" >{{movieInfo.homepage}}</a></p>
+      <p><b>Rating:</b> {{movieInfo.vote_average}}</p>
+      <p><b>Votes:</b> {{movieInfo.vote_count}}</p>
+      <p><b>Tagline:</b> {{movieInfo.tagline}}</p>
+      <div>
+        <a href="http://www.imdb.com/title/{{movieInfo.imdb_id}}" target="_blank"><img src="assets/img/logo-imdb.svg" /></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h1>Cast</h1>
+
+<div ng-repeat="cast in movieCredits track by cast.id">
+
+  <div class="col-md-3 topic-actors">
+
+      <div class="thumbnail thum-size">
+
+        <img ng-src="http://image.tmdb.org/t/p/w130/{{cast.profile_path}}" class="img-responsive"  
+              ng-show="cast.profile_path != null">
+         
+         <img class="center-topic thumbnail" src="assets/img/default-placeholder.png" ng-hide="cast.profile_path != null"
+              width="130px" height="195px"/>
+
+        <div class="caption" style="text-align: center;">
+          <h3><a href="#/actor/{{cast.id}}">{{cast.name}} as {{cast.character}}</a></h3>
+        </div>
+
+      </div>
+
+  </div>
+
+</div>

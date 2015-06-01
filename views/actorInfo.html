@@ -1,0 +1,53 @@
+ <div class="container"> 
+  <div class="alert alert-info" role="alert" ng-show="actorResult">{{actorResult}}</div>
+
+  <div class="media">
+    
+    <div class="media-left">
+
+        <img ng-src="http://image.tmdb.org/t/p/w185/{{actorInfo.profile_path}}" ng-show="actorInfo.profile_path != null"/>
+
+        <img class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" ng-hide="actorInfo.profile_path != null" width="130px" height="195px" />
+
+    </div>
+
+    <div class="media-body">
+     <h4 class="media-heading">{{actorInfo.name}} </h4>
+      <div class="medica-content">
+        <p>{{actorInfo.birthday}}</p>
+        <p>{{actorInfo.place_of_birth}}</p>
+        <p>{{actorInfo.biography}}</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <h1>Acting</h1>
+
+  <div class="alert alert-info" role="alert" ng-show="actorMovieResult">{{actorMovieResult}}</div>
+
+  <div ng-repeat="movie in movieList">
+      <div class="col-md-3 topic-actors">
+          <div class="[ info-card ]">
+              <div>
+                <img style="width: 100%" ng-src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" class="img-responsive" 
+                      ng-show="movie.poster_path != null"/>
+
+                <img width="227.5px" height="320px" class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" 
+                      ng-hide="movie.poster_path != null"/>
+              </div>
+              <div class="[ info-card-details ] animate">
+                  <div class="[ info-card-header ]">
+                      <h4> {{movie.original_title}} </h4>
+                      <h4> {{movie.release_date | date:'yyyy'}} </h4>
+                  </div>
+                  <div class="[ info-card-detail ]">
+                      <a href="#/movie/{{movie.id}}" class="btn btn-success"> View Detail </a>
+                  </div>
+              </div>
+          </div>
+          <br />
+      </div>
+  </div>
+</div>
