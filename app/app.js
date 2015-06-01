@@ -1,5 +1,9 @@
+'use strict';
+
+// Define Module app
 var MovieApp = angular.module("app", ["ngRoute", "ngResource"]);
 
+// Config App
 MovieApp.config(function($routeProvider){
 
 	$routeProvider.when('/searchMovie', {
@@ -21,6 +25,7 @@ MovieApp.config(function($routeProvider){
 	.otherwise({ redirectTo: '/searchMovie' })
 });
 
+// Function that provide the specified url
 function getUrl(action,options)
 {
 	var key = "089dde2396217b62fb377d77459dbfa9";

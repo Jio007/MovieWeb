@@ -4,10 +4,11 @@
   
   <div class="media-left">
       
-      <img ng-src="http://image.tmdb.org/t/p/w300/{{movieInfo.poster_path}}" ng-hide="movieInfo.poster_path == null"/>
+      <img ng-src="http://image.tmdb.org/t/p/w300/{{movieInfo.poster_path}}" ng-hide="movieInfo.poster_path == null" 
+            style="margin-left:12px" />
 
       <img class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" 
-            width="130px" height="195px" ng-hide="movieInfo.poster_path != null"/>
+            style="margin-left:12px" width="130px" height="195px" ng-hide="movieInfo.poster_path != null"/>
       
   </div>
 

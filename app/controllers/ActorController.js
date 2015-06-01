@@ -1,3 +1,6 @@
+'use strict';
+
+// Define Actor Controller
 MovieApp.controller('ActorController', ['$scope', '$routeParams', '$http', 'ActorService', function ($scope, $routeParams, $http, ActorService) {
 	
 	var msgActorNotFound = "Not Results";
@@ -7,15 +10,19 @@ MovieApp.controller('ActorController', ['$scope', '$routeParams', '$http', 'Acto
 	$scope.actorResult = '';
 	$scope.actorResult = '';
 
+	// Function to get the actor information
 	$scope.getInfoActor = function (id) {
 		
 		ActorService.getActorInfoService(id)
 		.success(function (data, status, headers, config) {
 		
+			// Validate Status
 			if (status == 200) {
 
+				// Set data results
 				$scope.actorInfo =  data; 
 				
+				// Validate data
 				if(data == null){
 					$scope.actorResult = msgActorNotFound;  
 				}
@@ -31,16 +38,19 @@ MovieApp.controller('ActorController', ['$scope', '$routeParams', '$http', 'Acto
 		});
 
 	}
-	
+	// Function to get the list actor movies
 	$scope.getActorMovies = function (id) {
 		
 		ActorService.getActorMoviesService(id)
 		.success(function (data, status, headers, config) {
 		
+			// Validate Status
 			if (status == 200) {
 
+				// Set data results
 				$scope.movieList =  data.cast; 
 				
+				// Validate data
 				if(data == null){
 					$scope.actorMovieResult = msgActorMovieNotFound;  
 				}
@@ -56,6 +66,7 @@ MovieApp.controller('ActorController', ['$scope', '$routeParams', '$http', 'Acto
 		});
 	}
 
+	// Validate if actor id is empty
 	if($routeParams.id)
 	{
 		$scope.getInfoActor($routeParams.id);

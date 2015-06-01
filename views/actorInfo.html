@@ -5,9 +5,10 @@
     
     <div class="media-left">
 
-        <img ng-src="http://image.tmdb.org/t/p/w185/{{actorInfo.profile_path}}" ng-show="actorInfo.profile_path != null"/>
+        <img ng-src="http://image.tmdb.org/t/p/w185/{{actorInfo.profile_path}}" ng-show="actorInfo.profile_path != null"
+              style="margin-left:12px" />
 
-        <img class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" ng-hide="actorInfo.profile_path != null" width="130px" height="195px" />
+        <img class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" ng-hide="actorInfo.profile_path != null"      style="margin-left:12px" width="130px" height="195px" />
 
     </div>
 
@@ -34,7 +35,7 @@
                 <img style="width: 100%" ng-src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" class="img-responsive" 
                       ng-show="movie.poster_path != null"/>
 
-                <img width="227.5px" height="320px" class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" 
+                <img  width="202px" height="280px" class="center-topic thumbnail" ng-src="assets/img/default-placeholder.png" 
                       ng-hide="movie.poster_path != null"/>
               </div>
               <div class="[ info-card-details ] animate">
